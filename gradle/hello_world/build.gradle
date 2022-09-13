@@ -78,3 +78,17 @@ tasks.named('hello') {
         println 'Hello Jupiter'
     }
 }
+
+// logging test
+tasks.register('logging_test') {
+    doLast {
+        logger.quiet('An info log message which is always logged.')
+        logger.error('An error log message.')
+        logger.warn('A warning log message.')
+        logger.lifecycle('A lifecycle info log message.')
+        logger.info('An info log message.')
+        logger.debug('A debug log message.')
+        logger.trace('A trace log message.') // Gradle never logs TRACE level logs
+        logger.lifecycle('A parametrized {} log message', 'info') // parametrized message
+    }
+}
